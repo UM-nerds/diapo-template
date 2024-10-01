@@ -1,4 +1,4 @@
-#import "../src/lib.typ": umfds
+#import "@preview/report-umfds:0.1.0": umfds
 
 #show: umfds.with(
   title: [#lorem(12)],
