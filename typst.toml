@@ -1,8 +1,8 @@
 [package]
-name = "report-umfds"
+name = "modern-report-umfds"
 version = "0.1.0"
 entrypoint = "src/lib.typ"
-repository = "https://github.com/UM-nerds/report-umfds"
+repository = "https://github.com/UM-nerds/modern-report-umfds"
 authors = ["Pablo Laviron", "Sébastien Vial"]
 license = "MIT-0"
 description = "A template for writing reports for the Faculty of Sciences of the University of Montpellier"
