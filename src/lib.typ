@@ -7,9 +7,13 @@
   lang: "en",
   body
 ) = {
-  set heading(numbering: "1.1   ")
-  show heading.where(level: 1): set text(weight: "medium", size: 1em)
   set page(paper: "a4", numbering: "1")
+
+  set heading(numbering: "1.1   ")
+
+  show heading: set text(weight: "medium")
+  show heading.where(level: 1): set text(size: 1em)
+
   set par(justify: true, first-line-indent: 1em)
   show par: set block(spacing: 0.65em)
   set text(
@@ -66,7 +70,7 @@
   
   v(5em)
 
-  if abstract != [] [
+  if abstract != none [
     #align(center)[
       #block(width: 85%)[
         #if lang == "en" [
@@ -80,12 +84,12 @@
       ]
     ]
   ]
-  
   pagebreak()
-  
+
   body
 
-  pagebreak()
-
-  bibliography
+  if bibliography != none [
+    #pagebreak()
+    #bibliography
+  ]
 }
