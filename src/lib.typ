@@ -2,6 +2,7 @@
   title: "",
   authors: (),
   date: none,
+  img: none,
   abstract: none,
   bibliography: none,
   lang: "en",
@@ -11,8 +12,7 @@
 
   set heading(numbering: "1.1   ")
 
-  show heading: set text(weight: "medium")
-  show heading.where(level: 1): set text(size: 1em)
+  show heading: it => block(below: 1em, it)
 
   set par(justify: true, first-line-indent: 1em)
   show par: set block(spacing: 0.65em)
@@ -31,7 +31,7 @@
     ]
   )
   
-  v(1cm)
+  v(1.5cm)
 
   align(center)[
     #text(17pt)[
@@ -68,8 +68,20 @@
     #date
   ]
   
-  v(5em)
+  v(2em)
 
+  if img != none [
+    #if abstract == none [
+      #v(3em)
+    ]
+    #align(center)[
+      #img
+    ]
+    #v(2em)
+  ] else [
+    #v(3em)
+  ]
+  
   if abstract != none [
     #align(center)[
       #block(width: 85%)[
@@ -84,6 +96,7 @@
       ]
     ]
   ]
+  
   pagebreak()
 
   body
