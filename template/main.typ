@@ -1,4 +1,4 @@
-#import "@preview/modern-report-umfds:0.1.1": umfds
+#import "@preview/modern-report-umfds:0.1.2": umfds
 
 #show: umfds.with(
   title: [#lorem(12)],
@@ -8,6 +8,7 @@
     "Author 3",
     "Author 4"
   ),
+  department: [Some Department],
   date: datetime.today().display("[day] [month repr:long] [year]"),
   img: rect(width: 15em, height: 15em, fill: luma(240))[
     #align(center + horizon)[
@@ -17,11 +18,10 @@
   abstract: [
     #lorem(100)
   ],
-  bibliography: bibliography("refs.bib", full: true),
   lang: "en",
 )
 
-= Section titled
+= Section
 #lorem(50)
 
 #lorem(20)
@@ -34,5 +34,9 @@
 === Sub-subsection
 #lorem(50)
 
-= Section title
+= Section
 #lorem(200)
+
+#pagebreak()
+
+#bibliography("refs.bib", full: true)

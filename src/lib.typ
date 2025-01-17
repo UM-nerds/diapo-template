@@ -1,10 +1,11 @@
 #let umfds(
-  title: "",
+  title: [],
   authors: (),
+  department: none,
   date: none,
   img: none,
   abstract: none,
-  bibliography: none,
+  full: true,
   lang: "en",
   body
 ) = {
@@ -15,10 +16,7 @@
   show heading: it => block(below: 1em, it)
 
   set par(justify: true, first-line-indent: 1em)
-  show par: set block(spacing: 0.65em)
-  set text(
-    lang: lang,
-  )
+  set text(lang: lang)
   
   grid(
     columns:  (1fr, 4fr, 1fr),
@@ -53,13 +51,17 @@
   v(.5em)
   
   align(center)[
+    #if department != none [
+      #department
+      #v(-.5em)
+    ]
     #if lang == "en" [
       Faculty of Sciences
-    
+      #v(-.5em)
       University of Montpellier
     ] else [
       Faculté des Sciences
-    
+      #v(-.5em)
       Université de Montpellier
     ]
     
@@ -97,12 +99,9 @@
     ]
   ]
   
-  pagebreak()
+  if full [
+    #pagebreak()
+  ]
 
   body
-
-  if bibliography != none [
-    #pagebreak()
-    #bibliography
-  ]
 }
